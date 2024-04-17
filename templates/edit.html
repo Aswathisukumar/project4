@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+edit person
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <th>name</th>
+            <td>
+                <input type="text" name="name" value="{{p.name}}">
+            </td>
+        </tr>
+        <tr>
+            <th>age</th>
+            <td>
+                <input type="number" name="age" value="{{p.age}}">
+            </td>
+        </tr>
+        <tr>
+            <th>photo</th>
+            <td>
+                <img src="{{p.photo.url}}" alt="photo" height="50px" width="50px">
+            </td>
+            <td>
+                <input type="file" name="img" value="{{p.photo}}">
+            </td>
+        </tr>
+        <tr>
+            <th>username</th>
+            <td>
+                <input type="text" name="username" value="{{p.username}}">
+            </td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td>
+                <input type="text" name="password" value="{{p.password}}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

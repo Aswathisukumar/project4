@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>name</th>
+            <td>
+                <input type="text" name="name">
+            </td>
+        </tr>
+        <tr>
+            <th>age</th>
+            <td>
+                <input type="number" name="age">
+            </td>
+        </tr>
+        <tr>
+            <th>photo</th>
+            <td>
+                <input type="file" name="photo">
+            </td>
+        </tr>
+        <tr>
+            <th>username</th>
+            <td>
+                <input type="text" name="username">
+            </td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td>
+                <input type="text" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

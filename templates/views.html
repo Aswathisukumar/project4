@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>views</h1>
+{% for i in p %}
+<ul>
+    <li>name:{{i.name}}</li>
+    <li>age:{{i.age}}</li>
+    <li><img src="{{i.photo.urls}}" alt="photo" height="50px" width="50px"></li>
+    <li>username:{{i.username}}</li>
+    <li>password:{{i.password}}</li>
+    <li><a href="/people_edit/{{i.id}}">edit</a></li>
+    <li><a href="/people_delete/{{i.id}}">delete</a></li>
+</ul>
+{% endfor %}
+{% if r %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>name</th>
+            <td>
+                <input type="text" name="name" value="{{r.name}}">
+            </td>
+        </tr>
+        <tr>
+            <th>age</th>
+            <td>
+                <input type="number" name="age" value="{{r.age}}">
+            </td>
+        </tr>
+        <tr>
+            <th>photo</th>
+            <td>
+                <img src="{{r.photo.url}}" alt="photo" height="50px" width="50px">
+            </td>
+                <td>
+                <input type="file" name="photo" value="{{r.photo}}">
+            </td>
+        </tr>
+        <tr>
+            <th>username</th>
+            <td>
+                <input type="text" name="username" value="{{r.username}}">
+            </td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td>
+                <input type="text" name="password" value="{{r.password}}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+{% endif %}
+</body>
+</html>
